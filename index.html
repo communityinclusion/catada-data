@@ -19,12 +19,13 @@
     <style>
     th {
     cursor: pointer;
+    max-width: 150px;
 }
 </style>
   </head>
   <body>
     <div class="container">
-      
+
 
     <h1>Catada Data Compare Tool <sub>BETA</sub></h1>
     <div data-toggle="pill">
@@ -1747,5 +1748,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sortable/0.8.0/js/sortable.min.js"></script>
 
   <script src="bootstrap-accessibility.min.js"></script>
+  <script>// Javascript to enable link to tab
+  var url = document.location.toString();
+  if (url.match('#')) {
+      $('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show') ;
+      window.scrollTo(0, 0);
+
+  }
+
+  // Change hash for page-reload
+  $('.nav-tabs a').on('shown.bs.tab', function (e) {
+      window.location.hash = e.target.hash;
+  })
+  </script>
+
   </body>
+
 </html>
